@@ -1,3 +1,42 @@
+"""
+SING Gaze Project, Wieki, University of Vienna
+Script author: Pierre Labendzki
+June 2024
+
+This script extracts spectral flux (SF), amplitude envelope (env) tempo & pitch from
+imported wav files.
+
+The results of this study have been published as:
+"The reciprocal relationship between maternal infant-directed singing and infant gaze"
+in Musicae Scientiae, https://doi.org/10.1177/10298649251385676
+"""
+
+
+import os
+import librosa
+# import audiotools
+import subprocess
+import matplotlib.pyplot as plt
+import researchpy as rp
+import pandas as pd
+import numpy as np
+import math
+
+import parselmouth  #pip install praat-parselmouth
+
+from scipy import signal
+import scipy.stats
+from scipy import stats
+from csv import writer
+import random as rd
+from scipy.stats import levene
+from scipy.signal import find_peaks
+from scipy.io import wavfile as io
+from scipy.signal import hilbert, chirp
+from scipy.signal import butter,filtfilt
+from scipy.fftpack import fft
+from scipy.fftpack import rfft
+
 from scipy.stats import entropy
 #relative entropy = KLdiv
 from scipy.special import rel_entr
@@ -143,3 +182,17 @@ for ppt_id in ppt_id_list:
     duration = librosa.get_duration(filename = audio_dir+file_name)
     SF =resize_proportional(SF,int(duration*100))
     print("resize")
+    env =resize_proportional(env,int(duration*100))
+
+    #save all time-series into .npy arrays
+    print("save")
+	savepath_SF = '' # insert the path where you want to store the variables here
+	savepath_env = '' # insert the path where you want to store the variables here
+	savepath_tempi = '' # insert the path where you want to store the variables here
+	savepath_pitch = '' # insert the path where you want to store the variables here
+
+    # np.save(savepath_SF'+ppt_id+'_SF.npy', SF)
+    # np.save(savepath_env+ppt_id+'_env.npy', env)
+    # np.save(savepath_tempi+ppt_id+'_tempi.npy', tempi)
+    # np.save(savepath_pitch'+ppt_id+'_pitch.npy', pitch) 
+
