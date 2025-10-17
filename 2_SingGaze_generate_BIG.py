@@ -212,11 +212,13 @@ def make_sure_enough_ERCs(ERCs): #make sur that the ERC list is at least thresho
 
     
 path_look_file = '' # folder with .xlsx files of looks. files are named "ID_mum.xlsx" and contain the columns ID, Condition, Onset, Offset, and Duration.
+# our data can be found here: https://osf.io/dzvhb/overview Folder: Looks_to_mum
 look_file_list = os.listdir(path_look_file)
 print(look_file_list)
 N = len(look_file_list)
 
 df_start_end = pd.read_csv('') #csv file with audiolengths. contains columns ID, Study, Start_LUL, Start_PLA, End_LUL, End_PLA
+# for our data, see: https://osf.io/dzvhb/files Logs -> audiolengths.csv
 
 
 ppt_id_list = ['25','32','34','35','39','42','45','46','49','50','51','52',
@@ -264,6 +266,7 @@ size_total_looks_pla = 0
 size_total_looks_lul = 0
 
 # load from the paths from script 1_SingGaze_get_audio_features_beats_commented
+# for our data, see: https://osf.io/dzvhb/files audiofeatures -> subfolders SF, enf, pitch
 
 for ppt_id in ppt_id_list:
 
